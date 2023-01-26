@@ -151,6 +151,16 @@ Escribe este comando en la variable correspondiente del archivo [**homework.js**
 
 <br />
 
+## **👩‍💻 EJERCICIO 7**
+
+¿Cómo sería el comando para obtener a los actores de aquellas películas que incluyan en su nombre el string "_Fast and_", pero que también sean del año 2016? En total serán dos filas con nombres de actores.
+
+Escribe este comando en la variable correspondiente del archivo [**homework.js**](./homework.js) (no olvides incluir el ;punto y coma; del final de tu query!.
+
+---
+
+<br />
+
 ## **🔎 Recursos adicionales**
 
 -  Documentación [**SQL Querys for Postgre**](https://www.postgresql.org/docs/current/plpgsql-statements.html#PLPGSQL-STATEMENTS-GENERAL-SQL)

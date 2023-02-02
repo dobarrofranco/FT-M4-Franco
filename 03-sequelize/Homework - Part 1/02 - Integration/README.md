@@ -199,6 +199,7 @@ Recuerda que:
 
 -  Cuando guardes a los personajes debes agregar una propiedad en cada uno de ellos llamada **`isFav`**, que será por default **false**.
 -  Dentro del archivo ya está importado la tabla **characters** que tienes que utilizar.
+-  Puedes guardar los personajes con la query **`findOrCreate`**.
 
 > [**NOTA**]: no te olvides de manejar el error.
 

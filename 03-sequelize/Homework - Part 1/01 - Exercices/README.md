@@ -169,7 +169,7 @@ Este modelo va a representar la plantilla de un personaje que podrías seleccion
 
 </br>
 
-> ⚠️ **[IMPORTANTE]**: la combinación "name" + "mana_cost" debe ser única.
+> ⚠️ **[IMPORTANTE]**: la combinación "name" + "mana_cost" debe ser única y llamarse 'compositeIndex'.
 
 </br>
 

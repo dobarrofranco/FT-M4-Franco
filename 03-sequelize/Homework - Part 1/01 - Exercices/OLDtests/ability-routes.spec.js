@@ -2,7 +2,7 @@ const request = require('supertest');
 const app = require('../server.js');
 const { db, Character, Ability } = require('../db');
 
-describe('Ability Routes', () => {
+xdescribe('Ability Routes', () => {
   beforeAll(async () => {
     await db.sync({ force: true });
   })

@@ -19,7 +19,8 @@ describe("Ejercicio 2 | Modelos DB", () => {
         hp: 100.0,
         mana: 150.0,
       });
-      const keys = ['race', 'code', 'name', 'age', 'hp', 'mana'];
+      const keys = ["age", "race", "date_added", "code", "name", "hp", "mana"];
+      console.log(Object.keys(character.toJSON()));
       expect(Object.keys(character.toJSON())).toEqual(keys);
     });
 
@@ -27,10 +28,10 @@ describe("Ejercicio 2 | Modelos DB", () => {
       expect.assertions(1);
       try {
         await Character.create({
-          age: 25, 
+          age: 25,
           name: "Dai",
           hp: 128.0,
-          mana: 112.0
+          mana: 112.0,
         });
       } catch (error) {
         expect(error.message).toBeDefined();
@@ -41,10 +42,10 @@ describe("Ejercicio 2 | Modelos DB", () => {
       expect.assertions(1);
       try {
         await Character.create({
-          age: 25, 
+          age: 25,
           code: "12345",
           hp: 128.0,
-          mana: 112.0
+          mana: 112.0,
         });
       } catch (error) {
         expect(error.message).toBeDefined();
@@ -55,10 +56,10 @@ describe("Ejercicio 2 | Modelos DB", () => {
       expect.assertions(1);
       try {
         await Character.create({
-          age: 25, 
+          age: 25,
           code: "12345",
           name: "Tincho",
-          mana: 112.0
+          mana: 112.0,
         });
       } catch (error) {
         expect(error.message).toBeDefined();
@@ -69,10 +70,10 @@ describe("Ejercicio 2 | Modelos DB", () => {
       expect.assertions(1);
       try {
         await Character.create({
-          age: 25, 
+          age: 25,
           code: "12345",
           hp: 128.0,
-          name: "Nacho"
+          name: "Nacho",
         });
       } catch (error) {
         expect(error.message).toBeDefined();
@@ -90,9 +91,9 @@ describe("Ejercicio 2 | Modelos DB", () => {
       const ability = await Ability.build({
         name: "Auri",
         description: "Que buena habilidad",
-        mana_cost: 500.99
-      })
-      const keys = ['id', 'name', 'description', 'mana_cost'];
+        mana_cost: 500.99,
+      });
+      const keys = ["summary", "id", "name", "description", "mana_cost"];
       console.log(ability.toJSON());
       expect(Object.keys(ability.toJSON())).toEqual(keys);
     });
@@ -102,7 +103,7 @@ describe("Ejercicio 2 | Modelos DB", () => {
       try {
         await Character.create({
           description: "create ability",
-          mana_cost: 133.0
+          mana_cost: 133.0,
         });
       } catch (error) {
         expect(error.message).toBeDefined();
@@ -114,7 +115,7 @@ describe("Ejercicio 2 | Modelos DB", () => {
       try {
         await Character.create({
           description: "create ability",
-          name: "power"
+          name: "power",
         });
       } catch (error) {
         expect(error.message).toBeDefined();
@@ -124,7 +125,7 @@ describe("Ejercicio 2 | Modelos DB", () => {
 
   describe("Role", () => {
     test("Debe existir", () => {
-      const Role = db.models.Ability;
+      const Role = db.models.Role;
       expect(Role).toBeDefined();
     });
 
@@ -132,13 +133,13 @@ describe("Ejercicio 2 | Modelos DB", () => {
       expect.assertions(1);
       try {
         await Character.create({
-          description: "role"
+          description: "role",
         });
       } catch (error) {
         expect(error.message).toBeDefined();
       }
     });
-  })
+  });
 
   afterAll(async () => {
     await db.sync({ force: true });

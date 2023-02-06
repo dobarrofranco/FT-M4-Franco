@@ -1,28 +1,31 @@
-# Homework modelos relacionales
+# Módulo 4 Bases de Datos | DBMS
 
-## Elegir un Schema
+## **📌 Temas de la homework**
 
-Tenés que diseñar el esquema entidad-relacion de por lo menos uno de estas web apps (o de alguna que vos conozcas):
+-  Modelo Entidad - Relación
 
-```
-Twitter
-Gmail
-Facebook
-Instagram
-Wordpress
-Wikipedia
-AirBnB
-GitHub
-Youtube
-Spotify
-Slack
-```
+<br />
 
-## Donde diseñar
+---
 
-- [Genmy Models](https://www.genmymodel.com/database-diagram-online)
-- [Google drawings](https://drawings.google.com/)
+## **🕒 Duración total estimada**
 
-> Vas a tener que presentar tu diseño, asi que hacelo lindo!
-> El trabajo se realiza en grupos de cuatro personas.
+x minutos
 
+<br />
+
+---
+
+## **🔎 Aprendizaje esperado**
+
+Al finalizar esta homework habrás:
+
+-  Aprendido a desarrollar un modelo Entidad - Relación.
+
+<br />
+
+---
+
+## **📎 TENER EN CUENTA**
+
+¡Esta homework sólo cuenta con actividades de integración!

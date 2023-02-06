@@ -4,7 +4,7 @@ const modelAbility = require('./models/Ability.js');
 const modelRole = require('./models/Role.js');
 
 const db = new Sequelize(
-   'postgres://postgres:123456@localhost:5432/henrydatabase',
+   'postgres://user:password@localhost:5432/henrydatabase',
    {
       logging: false,
    }

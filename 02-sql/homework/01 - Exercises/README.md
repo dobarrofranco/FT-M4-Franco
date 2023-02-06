@@ -25,6 +25,7 @@ Para poder realizar esta homework, lo primero que deberás hacer es descargar la
       <img src="./img/logo.png" alt="" width="70%" />
    </a>
 </div>
+
 <br/>
 
 ¡Listo! Ya tienes la plataforma PostgreSQL. Es momento de crear tu primera base de datos. Ahora abre la terminal **`SQL Shell (psql)`**. Aquí te pedirá que completes tu información. Sólo debes precionar siguiente (con la tecla _enter_) hasta que te pida tu contraseña. Allí deberás escribir la misma contraseña que utilizaste cuando instalaste PostgreSQL. La base de datos debe tener el nombre **`movies`**. Hazlo con el siguiente comando:

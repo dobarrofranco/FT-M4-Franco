@@ -116,13 +116,6 @@ Llegó el momento de crear nuestros modelos. Dentro de tu carpeta **`src`** crea
       <li>allowNull: false</li>
    </ul>
 </details>
-<details>
-   <summary>isFav</summary>
-   <ul>
-      <li>Boolean</li>
-      <li>allowNull: false</li>
-   </ul>
-</details>
 
 </br >
 
@@ -198,7 +191,7 @@ Una vez que tu función cumpla con su objetivo tendremos que guardar a los perso
 const { character } = require('../models/Character');
 ```
 
-3. Esta función debe guardar cada uno de los personajes en la base de datos. Puedes utilizar la query **`findOrCreate`**. No te olvides de agregar la propiedad **isFav**.
+3. Esta función debe guardar cada uno de los personajes en la base de datos. Puedes utilizar la query **`findOrCreate`**.
 
 ---
 

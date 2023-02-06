@@ -1,4 +1,4 @@
-# HW 02: Sequelize | Ejercicios
+# HW 03: Sequelize part 1 | Ejercicios
 
 ## **🕒 Duración estimada**
 

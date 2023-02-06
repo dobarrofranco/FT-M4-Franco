@@ -34,6 +34,6 @@ Al finalizar esta homework habrás:
 
 ## **📎 TENER EN CUENTA**
 
-¡Esta homework es la primera parte de Sequelize. Contiene tanto ejercicios como integración.
+¡Esta homework es la primera parte de Sequelize! Contiene tanto ejercicios como integración.
 
 Te sugerimos que comiences a realizar la homework de ejercicios [**README**](./01%20-%20Exercises/README.md), para luego desarrollar la parte de integración [**README**](./02%20-%20Integration/README.md).

@@ -1,4 +1,4 @@
-# HW 02: Sequelize | Integration
+# HW 03: Sequelize part 1 | Integration
 
 ## **🕒 Duración estimada**
 
@@ -18,7 +18,15 @@ En esta homework pondremos en práctica todo lo que hemos aprendido hasta ahora 
 
 ## **✅ Pasos básicos para realizar la homework**
 
-Para poder realizar esta homework, lo primero que deberás hacer es crear la base de datos que utilizaremos para nuestro proeycto de Rick & Morty. Para esto abre la terminal **`SQL Shell (psql)`** e ingresa con tu información. Utilizando el comando que ya conoces crea la base de datos que debe tener como nombre: **`rickandmorty`**. Hazlo con el siguiente comando:
+Lo primero que debemos hacer es instalar las librerías necesarias para continuar con este proyecto. Para esto, en el **`package.json`** de tu Back-End instala las siguientes librerías:
+
+-  sequelize
+-  pg
+-  dotenv
+
+Para poder realizar esta homework, lo primero que deberás hacer es crear la base de datos que utilizaremos para nuestro proyecto de Rick & Morty. Para esto abre la terminal **`SQL Shell (psql)`** e ingresa con tu información. Utilizando el comando que ya conoces crea la base de datos que debe tener como nombre: **`rickandmorty`**.
+
+> [**NOTA**]: es muy importante que el nombre de la base de datos sea este y no otro.
 
 Puedes verificar que se haya creado correctamente con el comando:
 
@@ -26,7 +34,13 @@ Puedes verificar que se haya creado correctamente con el comando:
    \l
 ```
 
-Una vez que se haya creado correctamente deberás dirigite al archivo [**.env**](./.env) y escribir la contraseña que utilizas para ingresar a tu cuenta de PostgreSQL.
+Una vez hecho esto deberás crear un archivo llamado **`.env`**. Este debe encontrarse en la raíz del proyecto, y en su interior tener lo siguiente:
+
+```bash
+   DB_USER=postgres
+   DB_PASSWORD= ---> ¡Aquí va tu contraseña!
+   DB_HOST=localhost
+```
 
 ---
 
@@ -38,7 +52,9 @@ Una vez que se haya creado correctamente deberás dirigite al archivo [**.env**]
 
 ## **👩‍💻 EJERCICIO 1**
 
-El primer paso es conectar nuestro código a la base de datos **rickandmorty**. Para esto, dirígete al archivo [**database/DB_connection**](./database/DB_connection.js), y completa el valor que necesita la instancia de Sequelize. ¡Te dejamos un template en el archivo!
+El primer paso es conectar nuestro código a la base de datos **rickandmorty**. Para esto:
+
+1. Copia y pega el archivo [**DB_connection**](./DB_connection.js) dentro de la carpeta **`src`** de tu proyecto y completa el valor que necesita la instancia de Sequelize. ¡Te dejamos un template en el archivo!
 
 ---
 
@@ -46,7 +62,7 @@ El primer paso es conectar nuestro código a la base de datos **rickandmorty**. 
 
 ## **👩‍💻 EJERCICIO 2**
 
-Llegó el momento de crear nuestros modelos. Dirígete a la carpeta [**models**](./models/) y crea las propiedades para cada uno de los modelos: _Character_ y _User_. Aquí te dejamos las propiedades y el tipo de dato.
+Llegó el momento de crear nuestros modelos. Dentro de tu carpeta **`src`** crea una nueva carpeta llamada **`models`**. Dentro de esta carpeta copia y pega el archivo **`Character`**. Aquí deberás crear las siguientes propiedades para el modelo (incluye los tipos):
 
 ### **Character**
 
@@ -54,7 +70,7 @@ Llegó el momento de crear nuestros modelos. Dirígete a la carpeta [**models**]
    <summary>id</summary>
    <ul>
       <li>Integer</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
       <li>Primary Key</li>
    </ul>
 </details>
@@ -62,88 +78,61 @@ Llegó el momento de crear nuestros modelos. Dirígete a la carpeta [**models**]
    <summary>name</summary>
    <ul>
       <li>String</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
    </ul>
 </details>
 <details>
    <summary>status</summary>
    <ul>
       <li>Enum (Alive - Dead - unknown)</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
    </ul>
 </details>
 <details>
    <summary>species</summary>
    <ul>
       <li>String</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
    </ul>
 </details>
 <details>
    <summary>gender</summary>
    <ul>
       <li>Enum (Female - Male - Genderless - unknown)</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
    </ul>
 </details>
 <details>
    <summary>origin</summary>
    <ul>
       <li>String</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
    </ul>
 </details>
 <details>
    <summary>image</summary>
    <ul>
       <li>String</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
    </ul>
 </details>
 <details>
    <summary>isFav</summary>
    <ul>
       <li>Boolean</li>
-      <li>Not Null</li>
+      <li>allowNull: false</li>
    </ul>
 </details>
-
-</br>
-
-### **User**
-
-<details>
-   <summary>id</summary>
-   <ul>
-      <li>Number</li>
-      <li>Not Null</li>
-      <li>Primary Key</li>
-   </ul>
-</details>
-<details>
-   <summary>username</summary>
-   <ul>
-      <li>String</li>
-      <li>Not Null</li>
-   </ul>
-</details>
-<details>
-   <summary>password</summary>
-   <ul>
-      <li>String</li>
-      <li>Not Null</li>
-   </ul>
-</details>
-
----
 
 </br >
 
+---
+
 ## **👩‍💻 EJERCICIO 3**
 
-Una vez creados los modelos regresa al archivo [**database/DB_connection**](./database/DB_connection.js). En este ejercicio nos encargaremos de que, cuando levantemos el proyecto estos modelos se guarden en la base de datos. Para esto:
+Una vez creado el modelo, regresa al archivo **`DB_connection`**. En este ejercicio nos encargaremos de que, cuando levantemos el proyecto, este modelo se guarde en la base de datos. Para esto:
 
-Ejecuta la función de cada modelo (ya están importadas al comienzo del archivo), pasándole como argumento la instancia de Sequelize ya creada. 👀 Revisa 👀 que hay comentado en el archivo un espacio para que realices este ejercicio.
+Importa el modelo que haz creado en este archivo. Ahora deberás ejecutar este modelo pasándole como argumento la instancia de Sequelize ya creada. 👀 Revisa 👀 que hay comentado en el archivo un espacio para que realices este ejercicio.
 
 ---
 
@@ -167,13 +156,19 @@ En este momento ya deberíamos de poder levantar el proyecto y que todo esté fu
 
 ## **👩‍💻 EJERCICIO 4**
 
-¡Ahora si! Llegó el momento de guardar los personajes en nuestra base de datos. Para esto dirígete al archivo [**routes/apiToDB.js**](./routes/apiToDB.js). Aquí tendrás que crear **getAPIdata** una función que haga un request a la API de **`rick and morty`** y obtenga a todos los personajes.
+¡Ahora si! Llegó el momento de guardar los personajes en nuestra base de datos. Para esto tendremos que crear un controlador y una ruta.
 
-Ten en cuenta que no obtendrás a todos los personajes con un sólo request, ya que la API los envía por página. Para este ejercicio sólo deberás obtener los primeros 100 personajes. Es decir que, el objetivo de esta función es retornar un arreglo con longitud igual a 100, donde en cada posición hay un personaje.
+### **Controlador**
 
-> [**NOTA**]: no te olvides de manejar el error.
+Dirígete a la carpeta **`controllers`** y crea un archivo llamado **`saveApiData`**. Dentro de este archivo deberás:
 
-Si te das cuenta, cada uno de los personajes trae mucha información que no utilizaremos, por lo que debes guardar, para cada personaje, únicamente las propiedades:
+1. Crea una función llamada **`getApiData`**.
+
+2. El objetivo de esta función es hacer un request a la API de Rick & Morty ("**`https://rickandmortyapi.com/api/character`**") y obtener los primeros 100 personajes.
+
+> [**NOTA**]: no olvides de manejar el error.
+
+3. Cada personaje viene con información que no nos interesa, por lo que es importante que todos los personajes de tu array solo tengan las propiedades:
 
 -  Id
 -  Name
@@ -183,6 +178,8 @@ Si te das cuenta, cada uno de los personajes trae mucha información que no util
 -  Gender
 -  Image
 
+4. Finalmente, esta función debe retornar el arreglo con los primeros 100 personajes.
+
 > [**PISTA**]: ¡hay muchas formas de resolver esto! Te desafíamos a que utilices recursión, pero puedes hacerlo como más prefieras.
 
 ---
@@ -191,19 +188,17 @@ Si te das cuenta, cada uno de los personajes trae mucha información que no util
 
 ## **👩‍💻 EJERCICIO 5**
 
-Una vez que tu función cumpla con su objetivo (retornar un arreglo de 100 personajes) tendremos que guardarlos en la base de datos. Para esto:
+Una vez que tu función cumpla con su objetivo tendremos que guardar a los personajes en la base de datos. En el mismo archivo de antes crea una función llamada **`saveApiData`** y expórtala.
 
-En el mismo archivo de antes encontrarás una función llamada **saveAPIdata**. Está funcion debe ejecutar a la función **getAPIdata**, y, a partir de su resultado, guardar todos los personajes en tu base de datos.
+1. Ejecuta a la función **`getApiData`** y guarda la información que retorna dentro de una variable.
 
-Recuerda que:
+2. Importa en este archivo a tu modelo de la siguiente forma:
 
--  Cuando guardes a los personajes debes agregar una propiedad en cada uno de ellos llamada **`isFav`**, que será por default **false**.
--  Dentro del archivo ya está importado la tabla **characters** que tienes que utilizar.
--  Puedes guardar los personajes con la query **`findOrCreate`**.
+```javascript
+const { character } = require('../models/Character');
+```
 
-> [**NOTA**]: no te olvides de manejar el error.
-
-¡Una vez ya esté construida esta función, dirígete al archivo [**index.js**](./index.js) y ejecútala una vez la base de datos ya esté sincronizada!
+3. Esta función debe guardar cada uno de los personajes en la base de datos. Puedes utilizar la query **`findOrCreate`**. No te olvides de agregar la propiedad **isFav**.
 
 ---
 
@@ -211,9 +206,27 @@ Recuerda que:
 
 ## **👩‍💻 EJERCICIO 6**
 
-Para validar que todo salió correctamente vamos a crear nuestra primera ruta GET, y obtener a todos nuestros personajes. Para esto dirígete al archivo [**getAllChars.js**](./routers/controllers/getAllChars.js). Aquí deberás crear una función que obtiene y retorna a todos los personajes de la base de datos. Utiliza el query **`findAll`**.
+Ve al archivo **`server`**. Aquí deberás importar la función creada en el ejercicio anterior, y el objeto **`sequelize`** del archivo **`DB_connection`**.
 
-> [**NOTA**]: ya está importada la tabla que debes utilizar. No te olvides de manejar el error.
+1. Sincroniza la base de datos, pasándole como argumento la propiedad **force** en true.
+
+2. Ejecuta la función **`saveApiData`**.
+
+3. Luego de los dos pasos anteriores debe levantarse el servidor.
+
+---
+
+<br />
+
+## **👩‍💻 EJERCICIO 7**
+
+Para validar que todo salió correctamente vamos a crear nuestra primera ruta GET, y obtener a todos nuestros personajes. Para esto:
+
+1. Dirígete a la carpeta **`controllers`** y crea un nuevo controlador llamado **`getAllChars`** que se encargue de buscar todos los personajes guardados en la base de datos.
+
+> [**NOTA**]: puedes utilizar la query: findAll.
+
+2. Crea la route en el archivo **`index`** de tu carpeta **routes**. El path de esta ruta debe ser: "_/rickandmorty/all_".
 
 Una vez que hayas construido esta función puede compobar en tu iterador de APIs favorita (thunder, postman, insomnia, etc...) que esta ruta funcione correctamente. El endponit al que tienes que apuntar el request es:
 

@@ -51,6 +51,20 @@ describe("Ejercicio 2 | Modelos DB", () => {
       }
     });
 
+    test("La propiedad age no puede ser null", async () => {
+      expect.assertions(1);
+      try {
+        await Character.create({
+          name: 'Dai',
+          code: "12345",
+          hp: 128.0,
+          mana: 112.0,
+        });
+      } catch (error) {
+        expect(error.message).toBeDefined();
+      }
+    });
+
     test("La propiedad hp no puede ser null", async () => {
       expect.assertions(1);
       try {
@@ -104,7 +118,7 @@ describe("Ejercicio 2 | Modelos DB", () => {
         description: "Que buena habilidad",
         mana_cost: 153.99
       })
-      const keys = ['summary', 'id', 'name', 'description', 'mana_cost'];
+      const keys = ['id', 'name', 'description', 'mana_cost'];
       console.log(ability.toJSON());
       expect(Object.keys(ability.toJSON())).toEqual(keys);
     });

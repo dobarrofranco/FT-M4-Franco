@@ -115,7 +115,6 @@ Este modelo va a representar la plantilla de un personaje que podrías seleccion
    <summary>age</summary>
    <ul>
       <li>Integer</li>
-      <li>No puede ser null</li>
    </ul>
 </details>
 <details>

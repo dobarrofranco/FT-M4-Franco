@@ -33,7 +33,6 @@ describe("Parte 2 | Character Routes", () => {
                 hp: 100.0,
                 mana: 120.0,
                 age: null,
-                date_added: new Date().toISOString().split('T')[0],
                 race: 'Other'
             });
         });
@@ -62,9 +61,9 @@ describe("Parte 2 | Character Routes", () => {
             const res = await request(server).get('/character');
             expect(res.statusCode).toBe(200);
             expect(res.body).toEqual([
-                {code: 'ONE', name: 'First', hp: 90.0, mana: 150.0, age: 27, date_added: new Date().toISOString().split('T')[0], race: 'Human'},
-                {code: 'TWO', name: 'Second', hp: 135.0, mana: 40.0, age: 20, date_added: new Date().toISOString().split('T')[0], race: 'Machine'},
-                {code: 'THREE', name: 'Third', hp: 110.0, mana: 110.0, age: 23, date_added: new Date().toISOString().split('T')[0], race: 'Human'}
+                {code: 'ONE', name: 'First', hp: 90.0, mana: 150.0, age: 27, race: 'Human'},
+                {code: 'TWO', name: 'Second', hp: 135.0, mana: 40.0, age: 20, race: 'Machine'},
+                {code: 'THREE', name: 'Third', hp: 110.0, mana: 110.0, age: 23, race: 'Human'}
             ]);
         });
 
@@ -92,7 +91,7 @@ describe("Parte 2 | Character Routes", () => {
             const res = await request(server).get('/character/TWO');
             expect(res.statusCode).toBe(200);
             expect(res.body).toEqual(
-              {code: 'TWO', name: 'Second', hp: 135.0, mana: 40.0, age: 20, date_added: new Date().toISOString().split('T')[0], race: 'Machine'}
+              {code: 'TWO', name: 'Second', hp: 135.0, mana: 40.0, age: 20, race: 'Machine'}
             );
         });
 

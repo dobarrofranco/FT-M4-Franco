@@ -115,14 +115,13 @@ Este modelo va a representar la plantilla de un personaje que podrías seleccion
    <summary>age</summary>
    <ul>
       <li>Integer</li>
-      <li>No puede ser null</li>
    </ul>
 </details>
 <details>
-   <summary>age</summary>
+   <summary>race</summary>
    <ul>
-      <li>Enum ('Human', 'Elf', 'Machine', 'Demon', 'Animal', 'Other') | Default 'Other'</li>
-      <li>No puede ser null</li>
+      <li>Enum ('Human', 'Elf', 'Machine', 'Demon', 'Animal', 'Other')</li>
+      <li>Default 'Other'</li>
    </ul>
 </details>
 <details>
@@ -152,6 +151,7 @@ Este modelo va a representar la plantilla de un personaje que podrías seleccion
    <summary>name</summary>
    <ul>
       <li>String</li>
+      <li>No puede ser null</li>
    </ul>
 </details>
 <details>
@@ -164,6 +164,7 @@ Este modelo va a representar la plantilla de un personaje que podrías seleccion
    <summary>mana_cost</summary>
    <ul>
       <li>Float</li>
+      <li>No puede ser null</li>
    </ul>
 </details>
 
@@ -180,6 +181,7 @@ Este modelo va a representar la plantilla de un personaje que podrías seleccion
    <ul>
       <li>String</li>
       <li>Debe ser único</li>
+      <li>No puede ser null</li>
    </ul>
 </details>
 <details>

@@ -179,13 +179,13 @@ A continuación te dejamos las propiedades de cada modelo junto con sus validaci
 
 ---
 
-### **👩‍💻 EJERCICIO 05 | Models**
+### **👩‍💻 EJERCICIO 05 | Instanciar Modelos**
 
 Ya tenemos nuestra conexión a la base de datos y nuestros modelos creados. Lo único que nos queda por hacer es que cada vez que levantemos el proyecto, estos modelos se guarden en la base de datos. Para esto:
 
 1. Dirígete al archivo **`DB_connection`**. En este archivo importa los dos modelos que creaste previamente. Asegúrate de importalos con el nombre **"`FavoriteModel`"** y **"`UserModel`"**.
 
-2. Luego de importarlos tendrás que ejecutar cada uno, pasándoles como argumento la instancia de sequeliza que se encuentra más arriba.
+2. Luego de importarlos tendrás que ejecutar cada uno, pasándoles como argumento la instancia de sequelize que se encuentra más arriba.
 
 Por ejemplo, si tuvieras un modelo llamado **Henry** deberías hacer lo siguiente:
 
@@ -230,10 +230,6 @@ En este momento ya deberíamos de poder levantar el proyecto y que todo esté fu
 <div align="center" >
    <img src="./assets/workInProgress.png" alt="" />
 </div>
-
-<br />
-
-Llegó el momento de guardar los personajes en nuestra base de datos. Para esto tendremos que complejizar un poco nuestros controladores de favoritos.
 
 </div>
 

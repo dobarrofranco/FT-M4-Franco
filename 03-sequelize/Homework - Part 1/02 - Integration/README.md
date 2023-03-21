@@ -55,9 +55,9 @@ Una vez las hayas instalado tendrás que crear la base de datos en PostgreSQL. P
 Dirígete a la raíz de tu proyecto Back-End. Allí deberás crea un archivo llamado **`.env`**. En su interior debes escribir lo siguiente:
 
 ```js
-   DB_USER=postgres
-   DB_PASSWORD= ---> // ¡Aquí va tu contraseña!
-   DB_HOST=localhost
+DB_USER=postgres
+DB_PASSWORD= ---> // ¡Aquí va tu contraseña!
+DB_HOST=localhost
 ```
 
 <br />

@@ -203,9 +203,15 @@ HenryModel(sequelize);
 
 Por último tendrás que relacionar tus modelos. Si nos ponemos a pensar, un usuario puede tener muchos personajes favoritos. Y un personaje puede ser el favorito de muchos usuarios. ¡Esto quiere decir que la relación debe ser de muchos a muchos!
 
-Dirígete al archivo **`DB_connection`** y relaciona tus modelos. La tabla intermedia debe llamarse **`user_favorite`**.
+1. Dirígete al archivo **`DB_connection`** y relaciona tus modelos. La tabla intermedia debe llamarse **`user_favorite`**.
 
 > [**NOTA**]: 👀 revisa que en el archivo hay un espacio comentado para que realices este ejercicio.
+
+2. Para terminar dirígete a tu archivo **`app.js`** e importa tu archivo **`DB_connection`**.
+
+   ```js
+   require('./DB_connection');
+   ```
 
 <br />
 

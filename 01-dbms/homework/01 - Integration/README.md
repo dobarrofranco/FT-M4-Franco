@@ -24,7 +24,7 @@ Bienvenido a la primera homework del Módulo 4. En esta oportunidad te desafiare
 
 ## **📋 INSTRUCCIONES**
 
-### **👩‍💻 EJERCICIO 01**
+### **👩‍💻 EJERCICIO 01 | Diagrama**
 
 Diseñar un **`modelo Entidad/Relación`** que converja todas aquellas entidades que creas presente en tu proyecto de **`Rick&Morty`**.
 

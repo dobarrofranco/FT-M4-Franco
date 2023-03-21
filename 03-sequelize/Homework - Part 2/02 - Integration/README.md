@@ -97,3 +97,87 @@ const { favorite } = require('../DB_connection');
       <img src="./logo.png" alt="" width="70%" />
    </a>
 </div>
+
+<br />
+
+---
+
+### **👩‍💻 EJERCICIO 06 | POST USER**
+
+Dirígete a tu carpeta controllers
+
+### **Controlador**
+
+Dirígete a la carpeta **`controllers`** y crea un archivo llamado **`saveApiData`**. Dentro de este archivo deberás:
+
+1. Crea una función llamada **`getApiData`**.
+
+2. El objetivo de esta función es hacer un request a la API de Rick & Morty ("**`https://rickandmortyapi.com/api/character`**") y obtener los primeros 100 personajes.
+
+> [**NOTA**]: no olvides de manejar el error.
+
+3. Cada personaje viene con información que no nos interesa, por lo que es importante que todos los personajes de tu array solo tengan las propiedades:
+
+-  Id
+-  Name
+-  Species
+-  Status
+-  Origin
+-  Gender
+-  Image
+
+4. Finalmente, esta función debe retornar el arreglo con los primeros 100 personajes.
+
+> [**PISTA**]: ¡hay muchas formas de resolver esto! Te desafíamos a que utilices recursión, pero puedes hacerlo como más prefieras.
+
+---
+
+</br >
+
+## **👩‍💻 EJERCICIO 5**
+
+Una vez que tu función cumpla con su objetivo tendremos que guardar a los personajes en la base de datos. En el mismo archivo de antes crea una función llamada **`saveApiData`** y expórtala.
+
+1. Ejecuta a la función **`getApiData`** y guarda la información que retorna dentro de una variable.
+
+2. Importa en este archivo a tu modelo de la siguiente forma:
+
+```javascript
+const { character } = require('../models/Character');
+```
+
+3. Esta función debe guardar cada uno de los personajes en la base de datos. Puedes utilizar la query **`findOrCreate`**.
+
+---
+
+<br />
+
+## **👩‍💻 EJERCICIO 6**
+
+Ve al archivo **`server`**. Aquí deberás importar la función creada en el ejercicio anterior, y el objeto **`sequelize`** del archivo **`DB_connection`**.
+
+1. Sincroniza la base de datos, pasándole como argumento la propiedad **force** en true.
+
+2. Ejecuta la función **`saveApiData`**.
+
+3. Luego de los dos pasos anteriores debe levantarse el servidor.
+
+---
+
+<br />
+
+## **👩‍💻 EJERCICIO 7**
+
+Para validar que todo salió correctamente vamos a crear nuestra primera ruta GET, y obtener a todos nuestros personajes. Para esto:
+
+1. Dirígete a la carpeta **`controllers`** y crea un nuevo controlador llamado **`getAllChars`** que se encargue de buscar todos los personajes guardados en la base de datos.
+
+> [**NOTA**]: puedes utilizar la query: findAll.
+
+2. Crea la route en el archivo **`index`** de tu carpeta **routes**. El path de esta ruta debe ser: "_/rickandmorty/all_".
+
+Una vez que hayas construido esta función puede compobar en tu iterador de APIs favorita (thunder, postman, insomnia, etc...) que esta ruta funcione correctamente. El endponit al que tienes que apuntar el request es:
+
+```javascript
+'http://localhost:3001/rickandmorty/allCharacters';
+```

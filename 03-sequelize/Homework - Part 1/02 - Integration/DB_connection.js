@@ -21,9 +21,10 @@ const sequelize = new Sequelize(
 
 // Ejercicio 06
 // ¡Relaciona tus modelos aquí abajo!
-const { User, Favorite } = sequelize.models;
+// const { User, Favorite } = sequelize.models;
 
 module.exports = {
-   ...sequelize.models,
-   sequelize,
+   // User,
+   // Favorite,
+   conn: sequelize,
 };

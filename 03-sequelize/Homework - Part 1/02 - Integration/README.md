@@ -201,16 +201,18 @@ HenryModel(sequelize);
 
 ### **👩‍💻 EJERCICIO 06 | RELATIONS**
 
-Por último tendrás que relacionar tus modelos. Si nos ponemos a pensar, un usuario puede tener muchos personajes favoritos. Y un personaje puede ser el favorito de muchos usuarios. ¡Esto quiere decir que la relación debe ser de muchos a muchos!
+Ahora tendrás que relacionar tus modelos. Si nos ponemos a pensar, un usuario puede tener muchos personajes favoritos. Y un personaje puede ser el favorito de muchos usuarios. ¡Esto quiere decir que la relación debe ser de muchos a muchos!
 
 1. Dirígete al archivo **`DB_connection`** y relaciona tus modelos. La tabla intermedia debe llamarse **`user_favorite`**.
 
+2. Una vez los hayas relacionado, exporta cada modelo de forma individual.
+
 > [**NOTA**]: 👀 revisa que en el archivo hay un espacio comentado para que realices este ejercicio.
 
-2. Para terminar dirígete a tu archivo **`app.js`** e importa tu archivo **`DB_connection`**.
+3. Para terminar dirígete a tu archivo **`app.js`** e importa la varaible **`conn`** de tu archivo **`DB_connection`**. Una vez la hayas importado, ¡sincroniza sequelize con tu base de datos antes que se levante el servidor!
 
    ```js
-   require('./DB_connection');
+   const { conn } = require('./DB_connection');
    ```
 
 <br />

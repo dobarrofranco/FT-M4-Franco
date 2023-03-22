@@ -1,68 +1,94 @@
-# HW 03: Sequelize part 2 | Integration
+# **💪 HW3 | Sequelize Part 2 - Integration**
 
-## **🕒 Duración estimada**
+## **🕒 DURACIÓN ESTIMADA**
 
-x minutos
-
----
+XX minutos
 
 <br />
 
-## **📌 INTRO**
-
-En esta homework nos encargaremos de terminar de integrar una base de datos en nuestro proyecto de Rick and Morty.
-
 ---
 
-<br />
+<div align="center">
 
-<h1 align="center">📋 INSTRUCCIONES</h1>
+## **💻 RICK AND MORTY APP 💻**
+
+</div>
+
+## **📝 INTRODUCCIÓN**
+
+En esta homework nos encargaremos de terminar de integrar una base de datos en nuestro proyecto de Rick and Morty componiendo nuevos controladores.
 
 </br >
 
-## **👩‍💻 EJERCICIO 1**
+---
 
-### **MODELO - FAVS**
+## **📋 INSTRUCCIONES**
 
-1. Dentro de tu carpeta **models** crea un nuevo modelo llamado **`Favorite`**. Este modelo debe tener las mismas propiedades que el modelo **Character**.
+### **👩‍💻 EJERCICIO 01 | POST USER**
 
-2. Importa este nuevo modelo dentro de tu archivo **`DB_connection`** y ejectútalo pasándole como argumento la instancia de Sequelize ya creada.
+Dirígete a tu carpeta **controllers**. Aquí deberás eliminar tus archivos **`handleFavorites.js`** y **`login.js`**.
+
+Si bien dentro del Front-End no tenemos un formulario para crear usuarios, crearemos una ruta con este objetivo para que podamos guardar (aunque sea desde el código) un nuevo usuario.
+
+1. Crea un nuevo archivo con el nombre **`postUser.js`**.
+
+2. Dentro de este archivo tendrás que importar tu modelo **User**.
+
+> [**NOTA**]: deberás importar este modelo de tu archivo **`DB_connection`** ya que desde allí está activo dentro de tu base de datos.
+
+3. Crea una función llamada **`postUser`** y expórtala. Esta función debe recibir por parámetro los objetos **`req`** y **`res`**. Además, esta función es asincrónica, ¡por lo que deberás trabajar con promesas o async await!
+
+4. Dentro de la función deberás recibir un **email** y una **password** por **`Body`**.
+
+5. Una vez recibido, deberás validar que realmente hayas recibido ambos y que no sean, por ejemplo, un string vacío. En el caso de no recibir alguno de los dos deberás responder con un **`status 400`** y devolver un mensaje que diga: **"_Faltan datos_"**.
+
+6. En el caso de si recibir ambos datos deberás guardarlos dentro de tu modelo. Una vez realizado responde con el usuario guardado.
+
+> [**NOTA**]: puedes utilizar el método **`findOrCreate`**.
 
 </br>
 
 ---
 
-## **👩‍💻 EJERCICIO 2**
+### **👩‍💻 EJERCICIO 02 | LOGIN**
 
-### **POST /FAV**
+Ahora si crearemos un controlador que valide la información de nuestra base de datos. Elimina por completo la carpeta **utils**.
 
-Ahora si conectaremos esta ruta con nuestra base de datos. Para esto, elimina la carpeta **utils** junto con todo lo que tenga dentro.
+1. Crea un archivo llamado **`login.js`**. Dentro de este archivo deberás importar tu modelo **User**.
 
-1. Ve a tu controlador **`postFav`**.
+2. Crea una función llamada **`login`** la cual reciba por parámetro los objetos **`req`** y **`res`**. No olvides exportarla.
 
-2. Elimina la importación que ya no es necesario, e importa tu nuevo modelo dentro de este archivo:
+3. Recibiras por **`Query`** los datos **email** y **password**.
 
-```javascript
-const { favorite } = require('../DB_connection');
+4. En el caso de no recibir alguno de los datos, responde con un **`status 400`** y el mensaje **"_Faltan datos_"**.
+
+5. Si ambos datos llegan correctamente tendrás que buscar aquel usuario que tenga el mismo email que recibiste anteriormente. En el caso de no encontrarlo responde con un **`status 404`** y el mensaje **"_Usuario no encontrado_"**.
+
+6. En el caso de encontrar a un usuario con ese mismo email solo tendrás ahora que comparar si su **password** es igual a la **password** que recibiste anteriormente. En el caso de no serlo responde con un **`status 403`** y un mensaje que diga **"_Contraseña incorrecta_"**.
+
+7. En el caso de que las contraseñas si coincidan, responde con el objeto:
+
+```js
+{
+   access: true;
+}
 ```
 
-3. Este controlador debe guardar en esta tabla el personaje que llega por **`req.body`**.
+</br>
 
 ---
 
-</br >
+### **👩‍💻 EJERCICIO 03 | POST FAV**
 
-## **👩‍💻 EJERCICIO 3**
+1. Crea un nuevo archivo llamado **`postFav.js`**. Dentro de este archivo deberás importar tu modelo **Favorite**.
 
-Ahora ve a tu controlador **`getChatById`**. Aquí deberás:
+2. Crea una función llamada **`postFav`** la cual reciba por parámetro los objetos **`req`** y **`res`**.
 
-1. Elimina la importación que ya no es necesario, e importa tu nuevo modelo dentro de este archivo:
+3. Deberás recibir las propiedades **id**, **name**, **origin**, **status**, **image**, **species** y **gender** por **`Body`**.
 
-```javascript
-const { favorite } = require('../DB_connection');
-```
+4. Ahora tendrás que postear este personaje dentro de tu base de datos.
 
-2. Este controlador debe obtener todos los personajes de la tabla de favoritos y devolverlos.
+5. Una vez guardado, busca todos los personajes favoritos guardados en tu base de datos y responde con ese arreglo.
 
 </br >
 
@@ -181,3 +207,5 @@ Una vez que hayas construido esta función puede compobar en tu iterador de APIs
 ```javascript
 'http://localhost:3001/rickandmorty/allCharacters';
 ```
+
+// // // // // // // // // // CREAR EN EL FRONT UN FORM PARA CREAR USUARIOS // // // // // // // // //

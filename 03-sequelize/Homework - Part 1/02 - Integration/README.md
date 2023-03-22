@@ -209,7 +209,7 @@ Ahora tendrás que relacionar tus modelos. Si nos ponemos a pensar, un usuario p
 
 > [**NOTA**]: 👀 revisa que en el archivo hay un espacio comentado para que realices este ejercicio.
 
-3. Para terminar dirígete a tu archivo **`app.js`** e importa la varaible **`conn`** de tu archivo **`DB_connection`**. Una vez la hayas importado, ¡sincroniza sequelize con tu base de datos antes que se levante el servidor!
+3. Para terminar dirígete a tu archivo **`index.js`** e importa la varaible **`conn`** de tu archivo **`DB_connection`**. Una vez la hayas importado, ¡sincroniza sequelize con tu base de datos antes que se levante el servidor!
 
    ```js
    const { conn } = require('./DB_connection');
